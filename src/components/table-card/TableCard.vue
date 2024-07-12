@@ -5,7 +5,6 @@ import Contacts from '../contacts';
 import { dataSource } from '../../shared/mockData';
 import { toTableData } from '../../shared/helpers';
 import { columns } from './config';
-import { getAccess } from '../../shared/api';
 
 const value = ref<string>('');
 
@@ -17,18 +16,11 @@ const onSearch = (searchValue: string) => {
   value.value = '';
 };
 
-const handleTitleClick = () => {
-  console.log('YOU SHALL NOT PATH');
-
-  getAccess().then(res => console.log('res', res));
-  
-}
-
 </script>
 
 <template>
 
-  <a-card title="Сделки и контракты" style="margin: 0 auto; max-width: 1560px;" @click="handleTitleClick">
+  <a-card title="Сделки и контракты" style="margin: 0 auto; max-width: 1560px;">
     <template #extra>
       <a-input-search
         v-model:value="value"
